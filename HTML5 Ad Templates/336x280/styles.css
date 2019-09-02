@@ -1,0 +1,142 @@
+body {
+	margin: 0;
+	padding: 0;
+	width: 100%;
+	font-family: 'Montserrat', sans-serif;
+	color: #f1f1f3;
+	text-decoration: none;
+	font-weight: normal; 
+	display: inline-block;
+}
+
+/* Khoros color palette */
+
+.fuschia {
+	color: #e21a9a;
+}
+.chartreuse {
+	color: #b3e538;
+}
+.cerulean {
+	color: #29ccfc;
+}
+
+/* 300x600 */
+
+#container {
+
+	/* this is where you change the dimensions */
+
+	width: 336px;
+	height: 280px;
+
+	
+	float: left;
+	box-sizing: border-box;
+	background-color: #00004b;
+	overflow: hidden;
+	padding-left: 25px;
+}
+
+#logo {
+	display: inline-block;
+	position: relative;
+
+	/* changes the position of the logo */
+
+	width: 125px;
+	margin-top: 5px;
+	margin-left: -175px;
+}
+
+#copy {
+	opacity: 0;
+	margin-top: -10px;
+	margin-right: 25px;
+
+	font-size: 9pt;
+}
+
+a#cta{
+
+	/* making the call to action button and positioning it */
+
+	display: inline-grid;
+	position: relative;
+	align-content: center;
+	background-color: #b3e538;
+	color: #00004b;
+	text-decoration: inherit;
+	font-weight: bold;
+	font-size: 9pt;
+	margin-top: 10px;
+	width: 80px;
+	height: 25px;
+	padding: 2.5px;
+	padding-left: 20px;
+	border: 1.5px solid #b3e538;
+	border-radius: 100px;
+	z-index: 100;
+	opacity: 0;
+}
+
+a#cta:hover {
+	
+	/* hover states for the call to action button */
+
+	color: #b3e538;
+	background-color: #00004b;
+	transition: ease .5s;
+}
+
+#pattern {
+
+	/* positioning and transforming the pattern to fit into the ad */
+
+	position: relative;
+	transform: rotate(65deg);
+	width: 75%;
+	overflow: hidden;
+	z-index: 50;
+	margin-top: -80px;
+	margin-left: 100px;
+
+}
+
+svg {
+
+	/* stuff for the svg including the animation*/
+
+	stroke: #e21a9a;
+	fill: none;
+	stroke-dasharray: 200; /*make this value work with your pattern when inspecting*/
+	opacity: 10;
+
+	/* animation calls the tag 'animate' + duration + timing function */
+
+	animation: animate 2s ease-in forwards; /*cubic bezier curve for easing/accelerating*/
+}
+
+
+/* keyframes */
+
+@keyframes animate {
+	0% {
+		opacity: 0;
+
+		/* play with this value for the reveal */
+		stroke-dashoffset: -200; /* negative allows for it to flip direction*/
+	}
+
+	30% {
+		opacity: 5;
+		stroke-dashoffset: 200;
+	}
+	90% {
+		opacity: 10;
+		stroke-dasharray: -2500;
+	}
+	100% {
+		stroke-dasharray: 3000;
+	}
+}
