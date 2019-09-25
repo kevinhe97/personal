@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+	
+	<title>300x250</title>
+	<meta name="ad.size" content="width=300px, height=600px">
+
+	<!-- linking to the CSS -->
+	<link rel="stylesheet" type="text/css" href="styles.css">
+
+	<!-- font linking -->
+	<link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet"> 
+
+	<!-- the click tag that edits the CTA link -->
+	<script type="text/javascript"> var clickTag = "https://www.khoros.com/about"; </script>
+
+	<!-- jQuery linking -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+	<!-- jQuery animation script/controls for chaining and moving and elements -->
+	<script>
+
+		$(document).ready(function(){ 
+			var duration = 800;
+
+			$("#logo").animate({left: '155px'}, duration);
+			$("#copy").delay(duration).animate({opacity: '1'}, duration);
+			$("#cta").delay(duration*3).animate({opacity: '1'}, duration);
+		});
+
+	</script>
+
+</head>
+
+<body>
+	<div id="container">
+
+		<!-- the logo/brand link -->
+		<a href="https://www.khoros.com"><img id="logo" src="images/khoros-white.png" border=0></a>
+
+		<div id="copy">
+
+			<h2><span class="fuschia">Place copy here</span> for some <span class="chartreuse">lively Khoros</span> content.</h2>
+			<h2>Emphasize using the <span class="cerulean">spans.</span></h2>
+
+		</div>
+
+		<a href="javascript:window.open(window.clickTag)" id="cta"><h3>CTA Text</h3></a>
+
+			
+			<div id="pattern">
+
+				<!-- place the SVG code below from Illustrator -->
+
+				<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 			viewBox="0 0 1170.15 1550.24" style="enable-background:new 0 0 1170.15 1550.24;" xml:space="preserve">
+					<style type="text/css"> .st0{fill:none;stroke:#29CCFC;stroke-width:4;stroke-miterlimit:10;} </style>
+					<g>
+						<path class="st0" d="M1139.37,1.42c0,0-731.77,728.29-1057.56,728.88c-16.52,0.03-33.21-0.47-49.55-3.07
+						c-8.52-1.36-18.24-3.02-25.55-7.96c-11.17-7.56,0.08-14.9,7.67-17.91c11.06-4.39,23.24-6.14,34.99-7.49
+						c10.53-1.21,21.12-1.88,31.71-2.26c325.58-11.8,1084.51,688.14,1084.51,688.14"/>
+						<path class="st0" d="M1140.98,85.93c0,0-731.77,728.29-1057.56,728.88c-16.52,0.03-33.21-0.47-49.55-3.07
+						c-8.52-1.36-18.24-3.02-25.55-7.96c-11.17-7.56,0.08-14.9,7.67-17.91c11.06-4.39,23.24-6.14,34.99-7.49
+						c10.53-1.21,21.12-1.88,31.71-2.26c325.58-11.8,1084.51,688.14,1084.51,688.14"/>
+						<path class="st0" d="M1142.58,170.44c0,0-731.77,728.29-1057.56,728.88c-16.52,0.03-33.21-0.47-49.55-3.07
+						c-8.52-1.36-18.24-3.02-25.55-7.96c-11.17-7.56,0.08-14.9,7.67-17.91c11.06-4.39,23.24-6.14,34.99-7.49
+						c10.53-1.21,21.12-1.88,31.71-2.26c325.58-11.8,1084.51,688.14,1084.51,688.14"/>
+					</g>
+				</svg>
+
+			</div>
+
+	</div>
+
+
+</body>
+</html>

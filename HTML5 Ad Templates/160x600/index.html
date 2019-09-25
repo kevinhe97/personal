@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+	
+	<title>160x600</title>
+	<meta name="ad.size" content="width=300px, height=600px">
+
+	<!-- linking to the CSS -->
+	<link rel="stylesheet" type="text/css" href="styles.css">
+
+	<!-- font linking -->
+	<link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet"> 
+
+	<!-- the click tag that edits the CTA link -->
+	<script type="text/javascript"> var clickTag = "https://www.khoros.com/about"; </script>
+
+	<!-- jQuery linking -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+	<!-- jQuery animation script/controls for chaining and moving and elements -->
+	<script>
+
+		$(document).ready(function(){ 
+			var duration = 800;
+
+			$("#logo").animate({left: '150px'}, duration);
+			$("#copy").delay(duration).animate({opacity: '1'}, duration);
+			$("#cta").delay(duration*3).animate({opacity: '1'}, duration);
+		});
+
+	</script>
+
+</head>
+
+<body>
+	<div id="container">
+
+		<!-- the logo/brand link -->
+		<a href="https://www.khoros.com"><img id="logo" src="images/khoros-white.png" border=0></a>
+
+		<div id="copy">
+
+			<h1><span class="cerulean">The Great Divide</span></h1>
+			<h2>Brands and Consumers</h2>
+			<br><br>
+
+		</div>
+
+		<a href="javascript:window.open(window.clickTag)" id="cta"><h2>Discover</h2></a>
+
+			
+			<div id="pattern">
+
+				<!-- place the SVG code below from Illustrator -->
+				<!-- change the hex code to change the color -->
+				<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 776.87 1281.23"><defs><style>.cls-1{fill:none;stroke-miterlimit:10;stroke-width:6px;}</style></defs><title>ripple3-4_e2470d5a-3563-48f2-8d2b-90410bab0a70</title><circle class="cls-1" cx="387.09" cy="387.09" r="297.44" transform="translate(-160.34 387.09) rotate(-45)"/><circle class="cls-1" cx="387.09" cy="387.09" r="209.67" transform="translate(-160.34 387.09) rotate(-45)"/><circle class="cls-1" cx="387.09" cy="387.09" r="384.09" transform="translate(-160.34 387.09) rotate(-45)"/><circle class="cls-1" cx="389.78" cy="894.14" r="297.44" transform="translate(-518.09 537.51) rotate(-45)"/><path class="cls-1" d="M181.3,895.25c-.61-115.73,92.71-210,208.44-210.67S599.8,777.29,600.42,893,507.71,1103.08,392,1103.69,181.92,1011,181.3,895.25Z" transform="translate(0)"/><path class="cls-1" d="M268.88,894.79a122,122,0,1,1,122.63,121.32A122,122,0,0,1,268.88,894.79Z" transform="translate(0)"/><circle class="cls-1" cx="389.79" cy="894.14" r="384.09" transform="translate(-518.09 537.51) rotate(-45)"/></svg>
+
+			</div>
+
+	</div>
+
+
+</body>
+</html>

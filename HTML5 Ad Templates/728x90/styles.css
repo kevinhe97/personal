@@ -1,0 +1,168 @@
+body {
+	margin: 0;
+	padding: 0;
+	width: 100%;
+	font-family: 'Montserrat', sans-serif;
+	color: #f1f1f3;
+	text-decoration: none;
+	font-weight: normal; 
+	display: inline-block;
+}
+
+/* Khoros color palette */
+
+.fuschia {
+	color: #e21a9a;
+}
+.chartreuse {
+	color: #b3e538;
+}
+.cerulean {
+	color: #29ccfc;
+}
+
+/* 728x60 */
+
+#container {
+	display: inline-flex;
+	position: relative;
+	margin: 25px;
+
+	/* this is where you change the dimensions */
+
+	width: 728px;
+	height: 90px;
+
+	background-color: #00004b;
+	overflow: hidden; 
+	padding-left: 15px;
+	z-index: 1;
+}
+
+#container a{
+	width: 25%;
+	box-sizing: border-box;
+}
+
+#logo{
+	display: flex;
+	position: relative;
+	float: left;
+
+	/* changes the position and scale of the logo */
+
+	height: 65px;
+	margin-top: 10px;
+	margin-left: -175px;
+}
+
+#copy {
+	display: inline-block;
+	position: relative;
+	float: center;
+	margin-top: 10px;
+	margin-right: 50px;
+	width: 65%;
+	font-size: 8pt;
+	opacity: 0;
+}
+
+
+a#cta{
+	display: inline-grid;
+	align-content: center;	
+	text-decoration: inherit;
+	z-index: 100; /* priority */
+	background-color: #b3e538;
+
+	/* positioning on the flex grid*/
+
+	position: relative;
+	float: right;
+	margin-top: 30px;
+	margin-right: 125px;
+	
+	/* sizing the cta */
+
+	width: 17.5%;
+	height: 25px;
+	padding: 13.5px; /* clockwise padding starting from the top */
+	padding-left: 15px;
+	
+	/* the border and roundness */
+
+	border: 1.5px solid #b3e538;
+	border-radius: 25px;
+
+	opacity: 0; /* animation tweaking */
+
+	/* text changes */
+
+	font-size: 11pt;
+	color: #00004b;
+	font-weight: bold;
+}
+
+
+a#cta:hover {
+	
+	/* hover states for the call to action button */
+
+	color: #b3e538;
+	background-color: #00004b;
+	transition: ease .5s;
+}
+
+
+#pattern {
+
+	/* positioning and transforming the pattern to fit into the ad */
+	
+	display: block;
+	position: absolute;
+	width: 30%;
+	transform: rotate(125deg);
+	overflow: hidden;
+	z-index: 1;
+	margin-top: -45px;
+	margin-left: 525px;
+
+}
+
+svg {
+
+	/* stuff for the svg including the animation*/
+
+	stroke: #29ccfc;
+	fill: none;
+	stroke-dasharray: 3000; /*make this value work with your pattern when inspecting*/
+	opacity: 10;
+
+	/* animation calls the tag 'animate' + duration + timing function */
+
+	animation: animate 2s cubic-bezier(.35,0,1,.45); /*cubic bezier curve for easing/accelerating*/
+}
+
+/* keyframes */
+
+@keyframes animate {
+	0% {
+		opacity: 0;
+
+		/* play with this value for the reveal */
+		stroke-dashoffset: -2500; /* negative allows for it to flip direction*/
+	}
+
+	30% {
+		opacity: 10;
+		stroke-dashoffset: -2500;
+	}
+	90% {
+		fill: none;
+	}
+	100% {
+		opacity: 10;
+	}
+}
+
+
