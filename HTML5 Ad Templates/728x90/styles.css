@@ -26,7 +26,6 @@ body {
 #container {
 	display: inline-flex;
 	position: relative;
-	margin: 25px;
 
 	/* this is where you change the dimensions */
 
