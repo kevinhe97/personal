@@ -22,9 +22,12 @@
             <img id="night-sky" src="images/night-sky.jpg">
             <img id="tent" src="images/tent.png">
             <img id="fire" src="gifs/fire.gif">
-            <img id="tree" src="gifs/tree.gif">
-            <img id="firefly" src="gifs/firefly.gif">
+            <img id="pine" src="gifs/tree.gif">
+            <img id="fly" src="gifs/firefly.gif">
             <img id="bushy" src="gifs/bushy-boi.gif">
+
+            <a-mixin id="firefly" scale="2 2 2" geometry="primitive: plane;" material="src:#fly; shader:gif; side:double; alphaTest:0.5; repeat: 2 2;"></a-mixin>
+            <a-mixin id="tree" geometry="primitive: plane;" material="src:#pine; shader:gif; side:double; alphaTest:0.5;"></a-mixin>
         </a-assets>
 
         <a-entity id="rig" position="0 0 0">
@@ -47,7 +50,18 @@
 
         <a-image position=".5 1.5 -4.5" width="2" height="1" scale="3 3 3" rotation="0 -25 0" material="src:#tent" alphaTest="0.5" side="double"></a-image>
         <a-entity position="0 .5 -2.5" scale="1.25 1.25 1.25" rotation="0 5 0" geometry="primitive: plane;" material="src:#fire; shader:gif; side:double; alphaTest:0.5;"></a-entity>
-        <a-entity position="-3 1 -2" scale="2 2 2" rotation="0 30 0" geometry="primitive: plane;" material="src:#bushy; shader:gif; side:double; alphaTest:0.5;"></a-entity>
+        <a-entity position="-5 1 -2" scale="2 2 2" rotation="0 30 0" geometry="primitive: plane;" material="src:#bushy; shader:gif; side:double; alphaTest:0.5;"></a-entity>
+        
+
+        <a-entity mixin="tree" position="3 2 -2" rotation="0 -45 0" scale="5 5 5"></a-entity>
+        <a-entity mixin="tree" position="-5 2 -2" rotation="0 45 0" scale="5 5 5"></a-entity>
+        <a-entity mixin="tree" position="-4 1.85 -4" rotation="0 35 0" scale="4 4 4"></a-entity>
+        <a-entity mixin="tree" position="-6 1.75 -3.5" rotation="0 40 0" scale="3.5 3.5 3.5"></a-entity>
+        <a-entity mixin="tree" position="5 1.75 -1" rotation="0 -35 0" scale="4 4 4"></a-entity>
+        <a-entity mixin="tree" position="4.5 2.25 0" rotation="0 -60 0" scale="6 6 6"></a-entity>
+        <a-entity mixin="tree" position="0 2.75 -8" rotation="0 0 0" scale="7 7 7"></a-entity>
+        <a-entity mixin="tree" position="1 2 -7.5" rotation="0 0 0" scale="6 6 6"></a-entity>
+          <a-entity mixin="tree" position="-2 3 -7.5" rotation="0 15 0" scale="8 8 8"></a-entity>
 
     </a-scene>
 
