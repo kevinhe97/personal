@@ -11,6 +11,8 @@
 
     <script src="https://rawgit.com/mayognaise/aframe-gif-shader/master/dist/aframe-gif-shader.min.js"></script> 
     <script src="https://rawgit.com/mayognaise/aframe-gif-component/master/dist/aframe-gif-component.min.js"></script>
+
+    <script src="aframe-extras.js"></script>
     
 </head>
 
@@ -30,8 +32,8 @@
             <a-mixin id="tree" geometry="primitive: plane;" material="src:#pine; shader:gif; side:double; alphaTest:0.5;"></a-mixin>
         </a-assets>
 
-        <a-entity id="rig" position="0 0 0">
-            <a-entity id="cam" camera="active: true" look-controls wasd-controls="acceleration:75" position="0 1.35 0">
+        <a-entity id="rig" position="0 0 0" movement-controls>
+            <a-entity id="cam" camera="active: true" look-controls="pointerLockEnabled: true" wasd-controls="acceleration:75" position="0 1.35 0">
                 <a-entity id="reticle"
                 cursor="fuse: true; fuseTimeout: 1000; rayOrigin: cursor"
                 raycaster="interval: 500"
