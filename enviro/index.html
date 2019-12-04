@@ -9,36 +9,55 @@
     <script src="https://unpkg.com/aframe-environment-component@1.1.0/dist/aframe-environment-component.min.js"></script>
     <script src="https://unpkg.com/aframe-animation-component@^4.1.2/dist/aframe-animation-component.min.js"></script>
 
-    <script src="https://rawgit.com/mayognaise/aframe-gif-shader/master/dist/aframe-gif-shader.min.js"></script> 
-    <script src="https://rawgit.com/mayognaise/aframe-gif-component/master/dist/aframe-gif-component.min.js"></script>
-
+    <script src="gif-shader.js"></script>
     <script src="aframe-extras.js"></script>
 
     <script src="https://unpkg.com/aframe-border-component@0.1.6/dist/aframe-border-component.min.js"></script>
+
+    <script src="https://recast-api.donmccurdy.com/aframe-inspector-plugin-recast.js"></script>
 
 </head>
 
 <body>
 
-    <a-scene loading-screen="dotsColor: cyan; backgroundColor: black" physics>
+    <a-scene loading-screen="dotsColor: cyan; backgroundColor: black" inspector-plugin-recast>
 
         <a-assets>
-            <img id="night-sky" src="images/night-sky.jpg">
             <img id="tent" src="images/tent.png">
+            <img id="hammock" src="images/hammock.png">
+            <img id="cobblestone" src="images/cobblestone.png">
+            <img id="pine" src="images/tree.png">
+            <img id="stump" src="images/stump.png">
+            <img id="stumpy" src="images/stumpy.png">
+            <img id="rv" src="images/rv.png">
+            <img id="chair" src="images/chair.png">
+            <img id="fox" src="images/fox.png">
+            <img id="squirrely" src="images/bird.png">
+            <img id="bird" src="images/bird.png">
+            <img id="bird-bottom" src="images/bird-bottom.png">
+            <img id="bird-side" src="images/bird-sode.png">
+            <img id="red-mushroom" src="images/mushroom-red.png">
+            <img id="purple-mushroom" src="images/mushroom-purple.png">
+            <img id="blue-mushroom" src="images/mushroom-blue.png">
+
             <img id="fire" src="gifs/fire.gif">
-            <img id="pine" src="gifs/tree.gif">
-            <img id="fly" src="gifs/firefly.gif">
+            <img id="grassy" src="gifs/grass.gif">
             <img id="bushy" src="gifs/bushy-boi.gif">
 
-            <a-box id="rail" color="black" depth="1" width="100" height="1" visible="true"></a-box>
+            <a-box id="rail" color="black" depth="1" width="100" height="1" visible="true" static-body></a-box>
 
-            <a-mixin id="firefly" scale="2 2 2" geometry="primitive: plane;" material="src:#fly; shader:gif; side:double; alphaTest:0.85; repeat: 2 2;"></a-mixin>
-            <a-mixin id="tree" geometry="primitive: plane;" material="src:#pine; shader:gif; side:double; alphaTest:0.85; transparent: false;" static-body></a-mixin>
+            <a-mixin id="tree" geometry="primitive: plane;" material="src:#pine; side:double; alphaTest:0.85;" ></a-mixin>
+            <a-mixin id="cobble" geometry="primitive: plane;" material="src:#cobblestone; side:double; alphaTest:0.85;" ></a-mixin>
+            <a-mixin id="grass" geometry="primitive: plane;" material="src:#grassy; shader:gif; side:double; alphaTest:0.85;" scale="2 2 2"></a-mixin>
+            <a-mixin id="rMushroom" geometry="primitive: plane;" material="src:#red-mushroom; side:double; alphaTest:0.85;" scale="1 1 1"></a-mixin>
+            <a-mixin id="pMushroom" geometry="primitive: plane;" material="src:#purple-mushroom; side:double; alphaTest:0.85;" scale="1.25 1.25 1.25"></a-mixin>
+            <a-mixin id="bMushroom" geometry="primitive: plane;" material="src:#blue-mushroom; side:double; alphaTest:0.85;" scale="1.5 1.5 1.5"></a-mixin>
+            <a-mixin id="squirrel" geometry="primitive: plane;" material="src:#squirrely; side:double; alphaTest:0.85;" scale="4 4 4"></a-mixin>
         </a-assets>
 
 
-        <a-entity id="rig" position="0 0 0" movement-controls="speed:.15">
-            <a-entity id="player" camera="active: true" look-controls="pointerLockEnabled: true" wasd-controls="acceleration:50" position="0 1.35 0">
+        <a-entity id="rig" position="-5 0 19" movement-controls="speed:.15">
+            <a-entity id="player" camera="active: true" look-controls="pointerLockEnabled: true" wasd-controls="acceleration:75" position="0 1.35 3">
                 <a-entity id="reticle"
                 cursor="fuse: true; fuseTimeout: 1000; rayOrigin: cursor"
                 raycaster="interval: 500"
@@ -50,26 +69,47 @@
             </a-entity>
         </a-entity>
 
-        <a-entity id="landscape" environment="preset: forest; lightPosition: 1.5 0 -300; horizonColor:  #000000; skyColor:  #474347; fog: .85; dressingOnPlayArea:  0.015;"></a-entity>
+        <a-entity id="landscape" environment="preset: forest; lightPosition: 1.5 0 -300; horizonColor:  #000000; skyColor:  #474347; fog: .85; dressingOnPlayArea:  0.015; playArea: 1;"></a-entity>
         
         <a-entity id="arena" 
             border='sides: 4; radius: 25; wall: #rail;' 
-            position='0 0.5 0'
-            rotation='0 0 0'></a-entity>
-        <a-box id="center" 
-            position="0 0 0"
-            color="black" 
-            depth="500" width="500" height="10" 
-            visible="false" static-body></a-box>
+            position="0 0.5 0"
+            rotation="0 0 0"></a-entity>
+
 
         <a-entity id="leftHand" hand-controls="left"></a-entity>
         <a-entity id="rightHand" hand-controls="right"></a-entity>
 
 
-        <a-image position=".5 1.5 -4.5" width="2" height="1" scale="3 3 3" rotation="0 -25 0" material="src:#tent" alphaTest="0.5" side="double"></a-image>
-        <a-entity position="0 .5 -2.5" scale="1.25 1.25 1.25" rotation="0 5 0" geometry="primitive: plane;" material="src:#fire; shader:gif; side:double; alphaTest:0.85;"></a-entity>
+        <a-image position=".5 1.5 -4.5" width="2" height="1" scale="3 3 3" rotation="0 -25 0" material="src:#tent; shader: flat; side: double; alphaTest:0.5"></a-image>
+        <a-entity position="0 .6 -2.5" scale="1.5 1.5 1.5" rotation="0 5 0" geometry="primitive: plane;" material="src:#fire; shader:gif; side:double; alphaTest:0.85;"></a-entity>
         <a-entity position="-5 1 -2" scale="2 2 2" rotation="0 30 0" geometry="primitive: plane;" material="src:#bushy; shader:gif; side:double; alphaTest:0.85;"></a-entity>
+        <a-entity position="-1 1.75 15" scale="6 6 6" rotation="-15 -55 0" geometry="primitive: plane;" material="src:#rv; side:double; alphaTest:0.85;"></a-entity>
         
+        <a-image mixin="rMushroom" position="7.5 .45 -15.25" rotation="0 -25 0"></a-image>
+        <a-image mixin="rMushroom" position="17.5 .45 -17" rotation="0 -30 0"></a-image>
+        <a-image mixin="rMushroom" position="14 .45 -19.25" rotation="0 15 0"></a-image>
+        <a-image mixin="rMushroom" position="16 .45 -10" rotation="0 -35 0"></a-image>
+        <a-image mixin="rMushroom" position="22 .45 -22" rotation="0 -35 0"></a-image>
+        <a-image mixin="pMushroom" position="16 .5 -20" rotation="0 -20 0"></a-image>
+        <a-image mixin="pMushroom" position="13 .5 -16" rotation="0 -15 0"></a-image>
+        <a-image mixin="bMushroom" position="15 .575 -18" rotation="0 -35 0"></a-image>
+
+        <a-entity mixin="grass" position="18 .95 -7" rotation="0 -60 0"></a-entity>
+        <a-entity mixin="grass" position="19.25 .95 -11" rotation="0 -70 0"></a-entity>
+        <a-entity mixin="grass" position="8 .95 -15" rotation="0 45 0"></a-entity>
+        <a-entity mixin="grass" position="9.5 .95 -19" rotation="0 35 0"></a-entity>
+        <a-entity mixin="grass" position="11 .95 -12.5" rotation="0 -25 0"></a-entity>
+
+        <a-entity mixin="tree" position="-7.5 2 22" rotation="0 55 0" scale="5 5 5"></a-entity>
+        <a-entity mixin="tree" position="-3 2 22" rotation="0 -65 0" scale="5 5 5"></a-entity>
+        <a-entity mixin="tree" position="-8 2.25 20" rotation="0 35 0" scale="6 6 6"></a-entity>
+        <a-entity mixin="tree" position="-2 2.25 18" rotation="0 -45 0" scale="6 6 6"></a-entity>
+        <a-entity mixin="tree" position="-10 1.85 21" rotation="0 60 0" scale="4 4 4"></a-entity>
+        <a-entity mixin="tree" position="-1 1.85 20" rotation="0 -50 0" scale="4 4 4"></a-entity>
+        <a-entity mixin="tree" position="-7 2.25 24" rotation="0 -25 0" scale="6 6 6"></a-entity>
+        <a-entity mixin="tree" position="-4 2.25 24" rotation="0 25 0" scale="6 6 6"></a-entity>
+
 
         <a-entity mixin="tree" position="3 2 -2" rotation="0 -45 0" scale="5 5 5"></a-entity>
         <a-entity mixin="tree" position="-5 2 -2" rotation="0 45 0" scale="5 5 5"></a-entity>
@@ -80,6 +120,11 @@
         <a-entity mixin="tree" position="0 2.75 -8" rotation="0 0 0" scale="7 7 7"></a-entity>
         <a-entity mixin="tree" position="1 2 -7.5" rotation="0 0 0" scale="6 6 6"></a-entity>
         <a-entity mixin="tree" position="-2 3 -7.5" rotation="0 15 0" scale="8 8 8"></a-entity>
+
+        <a-entity mixin="grass" position="-7.5 .95 20" rotation="0 45 0"></a-entity>
+        <a-entity mixin="grass" position="-3 .95 20" rotation="0 -45 0"></a-entity>
+        <a-entity mixin="grass" position="-9 .95 15" rotation="0 -15 0"></a-entity>
+        <a-entity mixin="grass" position="-11 .95 18" rotation="0 45 0"></a-entity>
 
     </a-scene>
 
