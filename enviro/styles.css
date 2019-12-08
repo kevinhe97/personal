@@ -26,10 +26,9 @@ body {
 	align-content: center;
 	background-color: #29ccfc;
 	text-decoration: none;
-	font-size: 75px;
+	font-size: 7.5vw;
 	width: 50%;
 	height: 25%;
-	padding-left: 15px;
 	border: 5px solid #29ccfc;
 	border-radius: 100px;
 	z-index: 100;
