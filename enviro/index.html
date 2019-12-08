@@ -4,6 +4,9 @@
     <title>2.5D</title>
 
     <meta name="description" content="Digital Game Design">
+    <script src="script.js"></script>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <link href="https://fonts.googleapis.com/css?family=Press+Start+2P&display=swap" rel="stylesheet">
     <script src="https://aframe.io/releases/0.9.0/aframe.min.js"></script>
 
     <script src="https://unpkg.com/aframe-environment-component@1.1.0/dist/aframe-environment-component.min.js"></script>
@@ -18,11 +21,18 @@
 
 </head>
 
-<body>
+<body onload="beginExperience()">
+    <div id="loading">
+        <button id="open">
+            Begin Experience
+        </button>
+    </div>
 
     <a-scene loading-screen="dotsColor: cyan; backgroundColor: black" inspector-plugin-recast>
 
         <a-assets>
+            <audio src="forest.mp3" autoplay preload loop></audio>
+
             <img id="tent" src="images/tent.png">
             <img id="hammock" src="images/hammock.png">
             <img id="cobblestone" src="images/cobblestone.png">
@@ -45,7 +55,7 @@
             <img id="grassy" src="gifs/grass.gif">
             <img id="bushy-boi" src="gifs/bushy-boi.gif">
 
-            <a-box id="rail" color="black" depth="1" width="100" height="1" visible="true" static-body></a-box>
+            <a-box id="rail" color="black" depth="1" width="100" height="10" visible="false" static-body></a-box>
 
             <a-mixin id="tree" geometry="primitive: plane;" material="src:#pine; side:double; alphaTest:0.85;"></a-mixin>
             <a-mixin id="bush" geometry="primitive: plane;" material="src:#bushy; side:double; alphaTest:0.85;"></a-mixin>
@@ -61,14 +71,14 @@
         </a-assets>
 
 
-        <a-entity id="rig" position="-5 0 19" movement-controls="speed:.15">
-            <a-entity id="player" camera="active: true" look-controls="pointerLockEnabled: true" wasd-controls="acceleration:75" position="0 1.35 3">
+        <a-entity id="rig" position="-5 0 19" movement-controls="controls:keyboard, touch; speed: 0.2; constrainToNavMesh: true" >
+            <a-entity id="player" camera="active: true; userHeight: 1.35" look-controls="pointerLockEnabled: true" position="0 1.35 0">
                 <a-entity id="reticle"
                 cursor="fuse: true; fuseTimeout: 1000; rayOrigin: cursor"
                 raycaster="interval: 500"
                 position="0 0 -1"
                 geometry="primitive: ring; radiusInner: 0.01; radiusOuter: 0.015"
-                material="color: cyan; opacity: .5; shader: flat">
+                material="color: #29ccfc; opacity: .75">
                 </a-entity>
                 <a-cursor id="cursor" intersection="event: click;"></a-cursor>
             </a-entity>
@@ -81,15 +91,17 @@
             position="0 0.5 0"
             rotation="0 0 0"></a-entity>
 
+        <a-entity id="walkMesh" class="navmesh" gltf-model="navmesh.gltf" position="0 0 0" scale="1 1 1" nav-mesh visible="false"></a-entity>
+
 
         <a-entity id="leftHand" hand-controls="left"></a-entity>
         <a-entity id="rightHand" hand-controls="right"></a-entity>
 
 
         <a-image position=".5 1.45 -4.5" width="2" height="1" scale="3 3 3" rotation="0 -25 0" material="src:#tent; shader: flat; side: double; alphaTest:0.5"></a-image>
-        <a-image position="1.55 .63 -2.75" scale="1.5 1.5 1.5" rotation="0 -205 0" material="src:#chair; shader: flat; side: double; alphaTest:0.5"></a-image>
-        <a-entity position="0 .6 -1.75" scale="1.5 1.5 1.5" rotation="0 5 0" geometry="primitive: plane;" material="src:#fire; shader:gif; side:double; alphaTest:0.85;"></a-entity>
-        <a-image position="-4.3 1.6 0" width="2" height="1" scale="4.5 4.5 4.5" rotation="0 25 0" material="src:#hammock; shader: flat; side: double; alphaTest:0.5"></a-image>
+        <a-image position="1.4 .63 -3.2" scale="1.5 1.5 1.5" rotation="0 -205 0" material="src:#chair; shader: flat; side: double; alphaTest:0.5"></a-image>
+        <a-entity position=".45 .6 -2.5" scale="1.5 1.5 1.5" rotation="0 5 0" geometry="primitive: plane;" material="src:#fire; shader:gif; side:double; alphaTest:0.85;"></a-entity>
+        <a-image position="-5.425 1.6 .575" width="2" height="1" scale="4.5 4.5 4.5" rotation="0 25 0" material="src:#hammock; shader: flat; side: double; alphaTest:0.5"></a-image>
         <a-entity position="-1 1.75 15" scale="6 6 6" rotation="-.25 -55 0" geometry="primitive: plane;" material="src:#rv; side:double; alphaTest:0.85;"></a-entity>
 
 
