@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.9.0/p5.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.9.0/addons/p5.dom.min.js"></script>
+    <script src="https://unpkg.com/ml5@0.4.3/dist/ml5.min.js"></script>
+
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <script src="/script.js" defer></script>
+    
+    
+    <title>Hand Poses</title>
+    <meta charset="utf-8" />
+  </head>
+
+  <body>
+    <h1>
+      Instagram Hand-Pose Challenge!
+    </h1>
+
+    <p id="frames"></p>
+
+    <button id="reroll">Reroll</button>
+
+    <script src="sketch.js"></script>
+    
+    <p id="context">
+      Try to mimic the emojis below with your own hand!<br>See how many poses you can get correct in a row!<br>Press the reroll button to try a new set of emojis!<br>Challenge your friends and have fun with it!
+      <br><br><br><br><br><br><br>
+      The large emoji below is what the machine thinks you're hand posing as!<br>If it's not recognizing it correctly, try adjust the position!<br>It works better without your face and your hand up front!
+    </p>
+  </body>
+</html>
